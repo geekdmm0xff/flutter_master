@@ -1,16 +1,5 @@
 # flutter_master
 
-A new Flutter project.
+> 2022 Flutter Master Class Travel App 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Youtube](https://www.youtube.com/watch?v=x4DydJKVvQk&list=WL&index=1&t=5468s)
