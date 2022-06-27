@@ -56,7 +56,15 @@ class _MyHomePageState extends State<MyHomePage>
               height: 30,
             ),
             _buildTabBar(),
-            _buildTabBarView()
+            _buildTabBarView(),
+            SizedBox(
+              height: 30,
+            ),
+            _buildSubTitleLabel(),
+            SizedBox(
+              height: 20,
+            ),
+            _buildExplores()
           ],
         ),
       ),
@@ -122,12 +130,88 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   Widget _buildTabBarView() {
-    final List<Widget> _contents =
-        ['Places', 'Inspiration', 'Emotions'].map((e) => Text(e)).toList();
-    return Expanded(
+    return Container(
+      padding: EdgeInsets.only(left: 30),
+      height: 300,
       child: TabBarView(
         controller: _controller,
-        children: _contents,
+        children: [
+          ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 3,
+            itemBuilder: (BuildContext context, int index) {
+              return _buildTabContent('img/mountain.jpeg');
+            },
+          ),
+          Text('2'),
+          Text('3'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTabContent(String url) {
+    return Container(
+      margin: EdgeInsets.only(right: 15, top: 10),
+      width: 200,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(image: AssetImage(url), fit: BoxFit.cover)),
+    );
+  }
+
+  Widget _buildSubTitleLabel() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            'Explore more',
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            'See all',
+            style: TextStyle(fontSize: 14, color: Colors.grey),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildExplores() {
+    return Container(
+      height: 100,
+      margin: const EdgeInsets.only(left: 30),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (BuildContext context, int index) {
+          return _buildExploreCell();
+        },
+      ),
+    );
+  }
+
+  Widget _buildExploreCell() {
+    return Container(
+      margin: const EdgeInsets.only(right: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 80,
+            width: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: const DecorationImage(
+                    image: AssetImage('img/mountain.jpeg'), fit: BoxFit.cover)),
+          ),
+          Container(
+            child: Text('Swimming'),
+          )
+        ],
       ),
     );
   }
