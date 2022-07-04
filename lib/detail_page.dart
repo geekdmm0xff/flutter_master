@@ -8,6 +8,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int gottenStars = 4;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,13 +71,80 @@ class _DetailPageState extends State<DetailPage> {
     return Container(
       padding: EdgeInsets.all(30),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('1234'),
-              Text('1234'),
+              const Text(
+                'Yosemite',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              const Text(
+                '\$ 123',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey),
+              ),
             ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.location_on,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text('CNY, ChengDu')
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Wrap(
+                children: List.generate(
+                    5,
+                    (index) => Icon(
+                          Icons.star,
+                          color:
+                              index < gottenStars ? Colors.amber : Colors.grey,
+                        )),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                '(0, 4)',
+                style: TextStyle(color: Colors.grey),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Peole',
+            style: TextStyle(
+                color: Colors.black.withOpacity(0.8),
+                fontSize: 25,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            'Number of peole join in group',
+            style: TextStyle(color: Colors.grey, fontSize: 18),
           ),
         ],
       ),
