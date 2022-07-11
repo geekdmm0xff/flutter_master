@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './widget/app_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -9,6 +10,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStars = 4;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +148,34 @@ class _DetailPageState extends State<DetailPage> {
             'Number of peole join in group',
             style: TextStyle(color: Colors.grey, fontSize: 18),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Wrap(
+            children: List.generate(
+                5,
+                (index) => InkWell(
+                      onTap: () {
+                        setState(() => selectedIndex = index);
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 10),
+                        child: AppButton(
+                          color: selectedIndex == index
+                              ? Colors.white
+                              : Colors.black,
+                          background: selectedIndex == index
+                              ? Colors.black
+                              : Colors.grey[200]!,
+                          border: selectedIndex == index
+                              ? Colors.black
+                              : Colors.grey[200]!,
+                          size: 60,
+                          text: '${index + 1}',
+                        ),
+                      ),
+                    )),
+          )
         ],
       ),
     );
